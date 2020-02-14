@@ -1,0 +1,25 @@
+default: &default
+  adapter: postgresql
+  encoding: utf8
+  #  encoding: unicode
+  # For details on connection pooling, see rails configuration guide
+  # http://guides.rubyonrails.org/configuring.html#database-pooling
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  URI: postgres://meytexzlkwlnnh:d5f721f472342cdbb5b24258a009c48fc2eee7a8b41684c616948a581c6b47d7@ec2-3-230-106-126.compute-1.amazonaws.com:5432/dda4dgq98pvoc2
+
+
+test:
+  <<: *default
+  URI: postgres://meytexzlkwlnnh:d5f721f472342cdbb5b24258a009c48fc2eee7a8b41684c616948a581c6b47d7@ec2-3-230-106-126.compute-1.amazonaws.com:5432/dda4dgq98pvoc2
+
+
+production:
+  <<: *default
+  URI: postgres://meytexzlkwlnnh:d5f721f472342cdbb5b24258a009c48fc2eee7a8b41684c616948a581c6b47d7@ec2-3-230-106-126.compute-1.amazonaws.com:5432/dda4dgq98pvoc2
+
+
+
+
