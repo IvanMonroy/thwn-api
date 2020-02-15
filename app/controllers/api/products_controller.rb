@@ -14,13 +14,13 @@ module Api
     # GET /products.json
     def index
       @products = Product.all #.is_in_parking se quita para proeubas en angular
-      render_default_format(format_index_info(@products),true,200)
+      render_default_format(@products,true,200)
     end
 
     # GET /entries/1
     # GET /entries/1.json
     def show
-      render_default_format(format_index_info(@product),true,200)
+      render_default_format(@product,true,200)
     rescue Exception => e
       puts e.inspect
     end
@@ -44,21 +44,11 @@ module Api
         @product.date_arrival = Date.today.to_date
         @product.is_parking= true
         if @product.save
-          render_success_format('Nueva entrada registrada',format_index_info(@product),true)
+          render_success_format('Nueva entrada registrada',@product,true)
         end
       end
     rescue Exception => e
       render_default_error e, 401
-    end
-    def format_index_info model
-      model.as_json(
-          include:{
-              vehicle:{
-                  only: %i[plate brand year],
-                  methods: %i[]
-              },
-          }
-      )
     end
 
     # PATCH/PUT /products/1
