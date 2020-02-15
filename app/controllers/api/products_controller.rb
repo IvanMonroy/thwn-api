@@ -1,5 +1,5 @@
 module Api
-  class EntriesController < ApplicationController
+  class ProductsController < ApplicationController
     include RenderHelper
     before_action :set_product, only: [:show, :edit, :update, :destroy], raise: false
     skip_before_action :authenticate_user!, only: [:create], raise: false
