@@ -18,7 +18,7 @@ module Api
     end
 
     def index_principal_pages
-      @index_news = IndexNew.all.limit(4) #.is_in_parking se quita para proeubas en angular
+      @index_news = IndexNew.all.limit(4).order('id desc') #.is_in_parking se quita para proeubas en angular
       render_default_format(@index_news,true,200)
     end
 
