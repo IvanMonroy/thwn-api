@@ -12,7 +12,9 @@ Rails.application.routes.draw do
 
     end
     resources :index_news, only: %i[index create update show destroy] do
-
+      collection do
+        get 'index_pp', action: :index_principal_pages
+      end
     end
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
