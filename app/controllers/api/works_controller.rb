@@ -79,6 +79,7 @@ module Api
     end
 
     def format_images(id,image_1, image_2, image_3, image_4, image_5, image_6)
+      id = id.to_s
       data = [{
                   srcUrl: 'https://willreyn-admin.herokuapp.com/uploads/work/first_image/' + id + '/' + image_1,
                   previewUrl: 'https://willreyn-admin.herokuapp.com/uploads/work/first_image/' + id + '/' + image_1
