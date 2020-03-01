@@ -9,7 +9,9 @@ Rails.application.routes.draw do
 
     end
     resources :works, only: %i[index create update show destroy] do
-
+      collection do
+        get 'index_gallery/:id', action: :index_for_gallery
+      end
     end
     resources :index_news, only: %i[index create update show destroy] do
       collection do
