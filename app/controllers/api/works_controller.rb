@@ -19,12 +19,6 @@ module Api
       render_default_format(@works, true, 200)
     end
 
-    def index_for_gallery
-      @work = Work.find_by_id params[:id] #.is_in_parking se quita para proeubas en angular
-      render_default_format(format_images(@work.id,@work.first_image, @work.second_image, @work.third_image, @work.fourth_image,@work.fifth_image, @work.sixth_image), true, 200)
-    end
-
-
     # GET /entries/1
     # GET /entries/1.json
     def show
@@ -78,31 +72,56 @@ module Api
       render_default_error e, 401
     end
 
-    def format_images(id,image_1, image_2, image_3, image_4, image_5, image_6)
+    def index_for_gallery
+      @work = Work.find_by_id params[:id] #.is_in_parking se quita para proeubas en angular
+      render_default_format_2(format_images(
+                                @work.id,@work.first_image,@work.first_header,@work.first_description,
+                                @work.second_image,@work.second_header,@work.second_description,
+                                @work.third_image,@work.third_header,@work.third_description,
+                                @work.fourth_image,@work.fourth_header,@work.fourth_description,
+                                @work.fifth_image,@work.fifth_header,@work.fifth_description,
+                                @work.sixth_image,@work.sixth_header,@work.sixth_description
+
+                            ), @work.title,true, 200)
+    end
+
+    def format_images(id,image_1,header_1,description_1, image_2,header_2,description_2, image_3,header_3,description_3, image_4,header_4,description_4, image_5,header_5,description_5, image_6,header_6,description_6)
       id = id.to_s
       data = [{
                   srcUrl: 'https://willreyn-admin.herokuapp.com/uploads/work/first_image/' + id + '/' + image_1,
-                  previewUrl: 'https://willreyn-admin.herokuapp.com/uploads/work/first_image/' + id + '/' + image_1
+                  previewUrl: 'https://willreyn-admin.herokuapp.com/uploads/work/first_image/' + id + '/' + image_1,
+                  header: header_1,
+                  description: description_1
               },
               {
                   srcUrl: 'https://willreyn-admin.herokuapp.com/uploads/work/second_image/' + id + '/' + image_2,
-                  previewUrl: 'https://willreyn-admin.herokuapp.com/uploads/work/second_image/' + id + '/' + image_2
+                  previewUrl: 'https://willreyn-admin.herokuapp.com/uploads/work/second_image/' + id + '/' + image_2,
+                  header: header_2,
+                  description: description_2
               },
               {
                   srcUrl: 'https://willreyn-admin.herokuapp.com/uploads/work/third_image/' + id + '/' + image_3,
-                  previewUrl: 'https://willreyn-admin.herokuapp.com/uploads/work/third_image/' + id + '/' + image_3
+                  previewUrl: 'https://willreyn-admin.herokuapp.com/uploads/work/third_image/' + id + '/' + image_3,
+                  header: header_3,
+                  description: description_3
               },
               {
                   srcUrl: 'https://willreyn-admin.herokuapp.com/uploads/work/fourth_image/' + id + '/' + image_4,
-                  previewUrl: 'https://willreyn-admin.herokuapp.com/uploads/work/fourth_image/' + id + '/' + image_4
+                  previewUrl: 'https://willreyn-admin.herokuapp.com/uploads/work/fourth_image/' + id + '/' + image_4,
+                  header: header_4,
+                  description: description_4
               },
               {
                   srcUrl: 'https://willreyn-admin.herokuapp.com/uploads/work/fifth_image/' + id + '/' + image_5,
-                  previewUrl: 'https://willreyn-admin.herokuapp.com/uploads/work/fifth_image/' + id + '/' + image_5
+                  previewUrl: 'https://willreyn-admin.herokuapp.com/uploads/work/fifth_image/' + id + '/' + image_5,
+                  header: header_5,
+                  description: description_5
               },
               {
                   srcUrl: 'https://willreyn-admin.herokuapp.com/uploads/work/sixth_image/' + id + '/' + image_6,
-                  previewUrl: 'https://willreyn-admin.herokuapp.com/uploads/work/sixth_image/' + id + '/' + image_6
+                  previewUrl: 'https://willreyn-admin.herokuapp.com/uploads/work/sixth_image/' + id + '/' + image_6,
+                  header: header_6,
+                  description: description_6
               }
       ]
     end

@@ -8,7 +8,17 @@ module RenderHelper
   def render_default_format data, success, status=200
     render :json => {
         success: success,
-        data: data
+        data: data,
+    }, status: status
+  rescue => e
+    raise e
+  end
+
+  def render_default_format_2 data,data_2, success, status=200
+    render :json => {
+        success: success,
+        data: data,
+        title: data_2
     }, status: status
   rescue => e
     raise e
