@@ -72,6 +72,13 @@ module Api
       render_default_error e, 401
     end
 
+    def index_for_menu
+      @works = Work.all.select(:id,:title, :category, :description, :first_image)
+      render_success_format('Datos', @works, true)
+    rescue Exception => e
+      render_default_error e, 401
+    end
+
     def index_for_gallery
       @work = Work.find_by_id params[:id] #.is_in_parking se quita para proeubas en angular
       render_default_format_2(format_images(
