@@ -92,6 +92,19 @@ module Api
                             ), @work.title,true, 200)
     end
 
+    def index_for_gallery_url
+      @work = Work.find_by_id params[:id] #.is_in_parking se quita para proeubas en angular
+      render_default_format_2(format_images_URL(
+                                  @work.img_url_one,@work.first_header,@work.first_description,
+                                  @work.img_url_two,@work.second_header,@work.second_description,
+                                  @work.img_url_three,@work.third_header,@work.third_description,
+                                  @work.img_url_fourth,@work.fourth_header,@work.fourth_description,
+                                  @work.img_url_fifth,@work.fifth_header,@work.fifth_description,
+                                  @work.img_url_sixth,@work.sixth_header,@work.sixth_description
+
+                              ), @work.title,true, 200)
+    end
+
     def format_images(id,image_1,header_1,description_1, image_2,header_2,description_2, image_3,header_3,description_3, image_4,header_4,description_4, image_5,header_5,description_5, image_6,header_6,description_6)
       id = id.to_s
       data = [{
@@ -127,6 +140,47 @@ module Api
               {
                   srcUrl: 'https://willreyn-admin.herokuapp.com/uploads/work/sixth_image/' + id + '/' + image_6,
                   previewUrl: 'https://willreyn-admin.herokuapp.com/uploads/work/sixth_image/' + id + '/' + image_6,
+                  header: header_6,
+                  description: description_6
+              }
+      ]
+    end
+
+
+    def format_images_URL(image_1,header_1,description_1, image_2,header_2,description_2, image_3,header_3,description_3, image_4,header_4,description_4, image_5,header_5,description_5, image_6,header_6,description_6)
+      data = [{
+                  srcUrl: image_1,
+                  previewUrl: image_1,
+                  header: header_1,
+                  description: description_1
+              },
+              {
+                  srcUrl: image_2,
+                  previewUrl: image_2,
+                  header: header_2,
+                  description: description_2
+              },
+              {
+                  srcUrl: image_3,
+                  previewUrl: image_3,
+                  header: header_3,
+                  description: description_3
+              },
+              {
+                  srcUrl: image_4,
+                  previewUrl: image_4,
+                  header: header_4,
+                  description: description_4
+              },
+              {
+                  srcUrl: image_5,
+                  previewUrl: image_5,
+                  header: header_5,
+                  description: description_5
+              },
+              {
+                  srcUrl: image_6,
+                  previewUrl: image_6,
                   header: header_6,
                   description: description_6
               }

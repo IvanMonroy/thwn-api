@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     resources :works, only: %i[index create update show destroy] do
       collection do
         get 'index_gallery/:id', action: :index_for_gallery
+        get 'index_gallery_url/:id', action: :index_for_gallery_url
         get 'index_menu/', action: :index_for_menu
       end
     end
