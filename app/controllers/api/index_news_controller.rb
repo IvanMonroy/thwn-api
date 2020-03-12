@@ -31,7 +31,7 @@ module Api
     end
 
     def info_new
-      @index_new = IndexNew.select(:id,:title,:bodyone,:subtitle,:bodytwho,:bodythree,:img_url_one,:img_url_two,:img_url_three, :autor, :note_1, :note_2).find_by_id params[:id]
+      @index_new = IndexNew.select(:id,:title,:bodyone,:subtitle,:subtitletwo,:bodytwho,:bodythree,:img_url_one,:img_url_two,:img_url_three, :autor, :note_1, :note_2).find_by_id params[:id]
       @index_news = IndexNew.select(:id,:title,:bodyone,:img_url_one, :autor, :note_1, :note_2).all.limit(4).order('id desc')
       render_default_format_2(@index_new,@index_news,true,200 )
     end
