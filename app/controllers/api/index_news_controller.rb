@@ -30,6 +30,12 @@ module Api
       puts e.inspect
     end
 
+    def info_new
+      @index_new = IndexNew.find_by_id params[:id]
+      @index_news = IndexNew.all.limit(4).order('id desc')
+      render_default_format_2(@index_new,@index_news,true,200 )
+    end
+
     # GET /index_new/new
     def new
       @index_new = IndexNew.new

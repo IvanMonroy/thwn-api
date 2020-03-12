@@ -18,6 +18,7 @@ Rails.application.routes.draw do
     resources :index_news, only: %i[index create update show destroy] do
       collection do
         get 'index_pp', action: :index_principal_pages
+        get 'info_new/:id', action: :info_new
       end
     end
   end
