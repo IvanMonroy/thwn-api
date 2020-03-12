@@ -13,7 +13,7 @@ module RenderHelper
   rescue => e
     raise e
   end
-
+  #test
   def render_default_format_2 data,data_2, success, status=200
     render :json => {
         success: success,
