@@ -19,7 +19,7 @@ module Api
 
     def index_for_index
       IndexNew.all.each do |a|
-        if a.odd?
+        if a.id.odd?
           @index_news1.push a
         else
           @index_news2.push a
