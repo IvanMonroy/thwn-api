@@ -19,6 +19,7 @@ Rails.application.routes.draw do
       collection do
         get 'index_pp', action: :index_principal_pages
         get 'info_new/:id', action: :info_new
+        get 'all_news/:id', action: :index_for_index
       end
     end
   end

@@ -17,6 +17,13 @@ module Api
       render_default_format(@index_news,true,200)
     end
 
+    def index_for_index
+      IndexNew.all.each do |a|
+        a.odd? ? @index_news1.push a : @index_news1.push a
+    end
+      render_default_format2(@index_news1,@index_news2,true,200)
+    end
+
     def index_principal_pages
       @index_news = IndexNew.all.limit(4).order('id desc') #.is_in_parking se quita para proeubas en angular
       render_default_format(@index_news,true,200)
