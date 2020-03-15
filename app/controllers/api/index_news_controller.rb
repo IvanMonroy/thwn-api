@@ -27,7 +27,7 @@ module Api
           @index_news2.push a
         end
     end
-      render_default_format2(@index_news1,@index_news2,true,200)
+      render_default_format_2(@index_news1,@index_news2,true,200)
     end
 
     def index_principal_pages
