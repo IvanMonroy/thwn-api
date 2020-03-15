@@ -18,6 +18,8 @@ module Api
     end
 
     def index_for_index
+      @index_news1 = []
+      @index_news2 = []
       IndexNew.all.each do |a|
         if a.id.odd?
           @index_news1.push a
