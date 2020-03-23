@@ -8,6 +8,9 @@ Rails.application.routes.draw do
     resources :products, only: %i[index create update show destroy] do
 
     end
+    resources :subscribers, only: %i[index create update show destroy] do
+
+    end
     resources :works, only: %i[index create update show destroy] do
       collection do
         get 'index_gallery/:id', action: :index_for_gallery
