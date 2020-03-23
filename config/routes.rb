@@ -9,7 +9,9 @@ Rails.application.routes.draw do
 
     end
     resources :subscribers, only: %i[index create update show destroy] do
-
+      collection do
+        post 'subscribe', action: :subscribe
+      end
     end
     resources :works, only: %i[index create update show destroy] do
       collection do

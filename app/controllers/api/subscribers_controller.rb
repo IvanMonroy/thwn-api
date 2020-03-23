@@ -41,12 +41,25 @@ module Api
     def create
       @subscriber = Subscriber.new(subscriber_params)
         if @subscriber.save
-          render_success_format('Bienvenido',@subscriber,true)
+          render_success_format('Gracias por preferirnos',@subscriber,true)
         end
     rescue Exception => e
       render_default_error e, 401
     end
 
+    def subscribe
+      @subscriber = Subscriber.new(subscriber_params)
+      @subscriber.name = @subscriber.email.split("@")[0]
+      @subscriber.subject = "Suscribeme"
+      @subscriber.phone = "Ninguno"
+      @subscriber.mesagge = "Sucribeme"
+      @subscriber.is_subscriber = "true"
+      if @subscriber.save
+        render_success_format('Bienvenido',@subscriber,true)
+      end
+    rescue Exception => e
+      render_default_error e, 401
+    end
     # PATCH/PUT /subscriber/1
     # PATCH/PUT /subscriber/1.json
     def update
