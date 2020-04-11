@@ -103,6 +103,45 @@
     div[style*="margin: 16px 0;"] {
       margin: 0 !important;
     }
+
+    .wrapper .btn-read{
+      margin:35px 0 0px 18px;
+    }
+
+    .btn-read {
+      position: relative;
+      display: inline-block;
+      font-size: 14px;
+      padding: 15px 30px;
+      overflow: hidden;
+      z-index: 1;
+      color: #fff;
+      background-color: #0d0d0d;
+      border: none;
+      font-weight: 600;
+    }
+    .btn--animated:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(15, 180, 224);
+      transform: scaleX(0);
+      transform-origin: 0 50%;
+      transition-property: transform;
+      transition-duration: 2s;
+      transition-timing-function: ease-out;
+      z-index: -1;
+    }
+    .btn--animated:hover {
+      color: #fff;
+    }
+    .btn--animated:hover:before {
+      transform: scaleX(1);
+      transition-timing-function: cubic-bezier(0.45, 1.64, 0.47, 0.66);
+    }
   </style>
 </head>
 
@@ -134,7 +173,7 @@
     </td>
   </tr>
   <tr>
-    <td bgcolor="#f4f4f4" align="center" style="padding: 0px 10px 0px 10px;">
+    <td bgcolor="#428bca" align="center" style="padding: 0px 10px 0px 10px;">
       <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
         <tr>
           <td bgcolor="#ffffff" align="left" style="padding: 20px 30px 40px 30px; color: #666666; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 25px;">
@@ -150,7 +189,11 @@
                   <table border="0" cellspacing="0" cellpadding="0">
                     <tr>
 
-                      <td align="center" style="border-radius: 3px;" bgcolor="#428bca"><a href="#" target="_blank" style="font-size: 20px; font-family: Helvetica, Arial, sans-serif; color: #ffffff; text-decoration: none; color: #ffffff; text-decoration: none; padding: 15px 25px; border-radius: 2px; border: 1px solid #428bca; display: inline-block;">Reactivate Account</a></td>
+                      <td align="center" style="border-radius: 3px;" bgcolor="#428bca">
+                        <div class="wrapper">
+                          <a href="https://www.youtube.com/channel/UCXTfDJ60DBmA932Du6B1ydg"><button type="button" class=" btn--border btn-read btn--animated">READ MORE</button></a>
+                        </div>
+                      </td>
 
 
 
@@ -175,7 +218,7 @@
     </td>
   </tr>
   <tr>
-    <td bgcolor="#f4f4f4" align="center" style="padding: 30px 10px 0px 10px;">
+    <td bgcolor="#428bca" align="center" style="padding: 30px 10px 0px 10px;">
       <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
         <tr>
           <td bgcolor="#FFECD1" align="center" style="padding: 30px 30px 30px 30px; border-radius: 4px 4px 4px 4px; color: #666666; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 25px;">
@@ -187,10 +230,10 @@
     </td>
   </tr>
   <tr>
-    <td bgcolor="#f4f4f4" align="center" style="padding: 0px 10px 0px 10px;">
+    <td bgcolor="#428bca" align="center" style="padding: 0px 10px 0px 10px;">
       <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
         <tr>
-          <td bgcolor="#f4f4f4" align="left" style="padding: 0px 30px 30px 30px; color: #666666; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 14px; font-weight: 400; line-height: 18px;"> <br>
+          <td bgcolor="#428bca" align="left" style="padding: 0px 30px 30px 30px; color: #666666; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 14px; font-weight: 400; line-height: 18px;"> <br>
             <p style="margin: 0;">Si estos correos electrónicos se vuelven molestos, <a href="#" target="_blank" style="color: #111111; font-weight: 700;"> no dude en darse de baja.</a>.</p>
           </td>
         </tr>
