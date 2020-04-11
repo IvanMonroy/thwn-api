@@ -41,8 +41,9 @@ module Api
     def create
       @subscriber = Subscriber.new(subscriber_params)
         if @subscriber.save
-          render_success_format('Gracias por preferirnos',@subscriber,true)
           SubscriptionMailer.subscription(@subscriber.name, @subscriber.email).deliver_now
+          render_success_format('Gracias por preferirnos',@subscriber,true)
+
         end
     rescue Exception => e
       render_default_error e, 401
