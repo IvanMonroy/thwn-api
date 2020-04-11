@@ -4,7 +4,7 @@ class SubscriptionMailer < ApplicationMailer
     @name = name
     @recipient = recipient
 
-    mail(to:  recipient, :reply_to => "tecnihidraulicosjb@gmail.com", name:  "Nueva noticia", subject:  "Hola " + name + ", gracias por suscribirte!")
+    mail(to:  recipient, :reply_to => "tecnihidraulicosjb@gmail.com", name:  "Nueva noticia", subject:  "Hola " + name + ", gracias por suscribirte! - Tecni hidráulicos JB")
   end
 
 
