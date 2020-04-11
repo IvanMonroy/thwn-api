@@ -42,6 +42,7 @@ module Api
       @subscriber = Subscriber.new(subscriber_params)
         if @subscriber.save
           render_success_format('Gracias por preferirnos',@subscriber,true)
+          SubscriptionMailer.subscription(@subscriber.name, @subscriber.email).deliver_now
         end
     rescue Exception => e
       render_default_error e, 401
@@ -56,6 +57,7 @@ module Api
       @subscriber.is_subscriber = "true"
       if @subscriber.save
         render_success_format('Bienvenido',@subscriber,true)
+        SubscriptionMailer.subscription(@subscriber.name, @subscriber.email).deliver_now
       end
     rescue Exception => e
       render_default_error e, 401
