@@ -42,7 +42,7 @@ module Api
       @subscriber = Subscriber.new(subscriber_params)
 
         if @subscriber.save
-          QuotesMailer.quotes(@subscriber.name, @subscriber.email, @subscriber.subject, @subscriber.phone, @subscriber.message).deliver_now
+          QuotesMailer.quotes(@subscriber.name, @subscriber.email, @subscriber.subject, @subscriber.phone, @subscriber.mesagge).deliver_now
           render_success_format('Gracias por preferirnos',@subscriber,true)
 
         end
