@@ -41,7 +41,7 @@ module Api
     def create
       @subscriber = Subscriber.new(subscriber_params)
         if @subscriber.save
-          SubscriptionMailer.subscription(@subscriber.name, @subscriber.email).deliver_now
+          QuotesMailer.quotes(@subscriber.name, @subscriber.email, @subscriber.subject, @subscriber.phone, @subscriber.message).deliver_now
           render_success_format('Gracias por preferirnos',@subscriber,true)
 
         end
