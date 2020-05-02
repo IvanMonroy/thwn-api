@@ -56,7 +56,7 @@ module Api
       @subscriber.subject = "Suscribeme"
       @subscriber.phone = "Ninguno"
       @subscriber.mesagge = "Sucribeme"
-      @subscriber.is_subscriber = "true"
+      #@subscriber.is_subscriber = "true"
       if @subscriber.save
         render_success_format('Bienvenido',@subscriber,true)
         SubscriptionMailer.subscription(@subscriber.name, @subscriber.email).deliver_now
