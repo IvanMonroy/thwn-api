@@ -84,7 +84,7 @@ module Api
     def info_our_works
       @our_works = OurWork.find_by_id params[:id]
       @index_news = OurWork.select(:id,:category, :name, :situation, :solution).all.limit(4).order('id desc')
-      render_default_format_2(@our_work,@index_news,true,200 )
+      render_default_format_2(@our_works,@index_news,true,200 )
     end
 
 
