@@ -30,6 +30,7 @@ Rails.application.routes.draw do
     resources :our_works, only: %i[index create update show destroy] do
       collection do
         get 'info_our_works/:id', action: :info_our_works
+        get 'index_for_menu', action: :index_for_menu
 
       end
     end

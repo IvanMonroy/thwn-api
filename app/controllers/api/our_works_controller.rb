@@ -73,7 +73,7 @@ module Api
     end
 
     def index_for_menu
-      @our_works = OurWork.all.select(:id,:category, :name, :situation, :solution, :image_one, :image_two, :image_three, :image_fourth, :image_fifth)
+      @our_works = OurWork.all.select(:id,:category, :name, :situation, :solution, :image_one, :image_two)
       render_success_format('Datos', @our_works, true)
     rescue Exception => e
       render_default_error e, 401
