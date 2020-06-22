@@ -27,6 +27,12 @@ Rails.application.routes.draw do
         get 'all_news', action: :index_for_index
       end
     end
+    resources :our_works, only: %i[index create update show destroy] do
+      collection do
+        get 'info_our_works/:id', action: :info_our_works
+      end
+    end
+
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
