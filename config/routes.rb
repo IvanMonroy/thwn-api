@@ -10,6 +10,7 @@ Rails.application.routes.draw do
         post 'get_by_desc', action: :get_by_desc
       end
 
+
     end
     resources :subscribers, only: %i[index create update show destroy] do
       collection do
