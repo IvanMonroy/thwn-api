@@ -3,6 +3,7 @@ module Api
     include RenderHelper
     before_action :set_product, only: [:show, :edit, :update, :destroy], raise: false
     skip_before_action :authenticate_user!, only: [:create], raise: false
+
     respond_to :json
     def all
     end
