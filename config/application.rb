@@ -31,6 +31,7 @@ module TecniHidraulicos
     config.api_only = true
     config.action_controller.forgery_protection_origin_check = false
 
+
     config.middleware.insert_before 0, Rack::Cors do
       allow do
         origins '*'
