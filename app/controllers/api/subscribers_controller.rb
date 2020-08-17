@@ -12,6 +12,7 @@ module Api
       { root: false }
     end
 
+
     # GET /subscriber
     # GET /subscriber.json
     def index
