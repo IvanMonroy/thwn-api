@@ -44,7 +44,7 @@ module Api
 
         if @subscriber.save
           QuotesMailer.quotes(@subscriber.name, @subscriber.email, @subscriber.subject, @subscriber.phone, @subscriber.mesagge).deliver_now
-          render_success_format('Gracias por preferirnos',@subscriber,true)
+          # render_success_format('Gracias por preferirnos',@subscriber,true)
 
         end
     rescue Exception => e
@@ -60,7 +60,7 @@ module Api
       #@subscriber.is_subscriber = "true"
       if @subscriber.save
         SubscriptionMailer.subscription(@subscriber.name, @subscriber.email).deliver_now
-        render_success_format('Bienvenido',@subscriber,true)
+         # render_success_format('Bienvenido',@subscriber,true)
       end
     rescue Exception => e
       render_default_error e, 401
