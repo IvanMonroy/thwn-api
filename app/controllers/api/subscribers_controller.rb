@@ -2,8 +2,8 @@ module Api
   class SubscribersController < ApplicationController
     include RenderHelper
     before_action :set_subscriber, only: [:show, :edit, :update, :destroy], raise: false
-    skip_before_action :authenticate_user!, only: [:destroy], raise: false
-    skip_before_action :verify_authenticity_token
+    skip_before_action :authenticate_user!, only: [:create], raise: false
+
 
     respond_to :json
     def all
