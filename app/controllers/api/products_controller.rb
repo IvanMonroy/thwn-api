@@ -25,6 +25,13 @@ module Api
       puts e.inspect
     end
 
+    def get_by_desc
+      @products = Product.where("name LIKE ? OR description LIKE ? OR mark LIKE ? OR category LIKE ?", "#{params[:filter]}%", "#{params[:filter]}%", "#{params[:filter]}%", "#{params[:filter]}%")
+      render_default_format(@products,true,200)
+    rescue Exception => e
+      render_default_error e, 401
+    end
+
     # GET /products/new
     def new
       @product = Product.new
