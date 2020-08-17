@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   namespace :api do
     resources :products, only: %i[index create update show destroy] do
       collection do
-        get 'get_by_desc', action: :get_by_desc
+        post 'get_by_desc', action: :get_by_desc
       end
 
     end
