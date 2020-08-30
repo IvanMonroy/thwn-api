@@ -26,7 +26,7 @@ module Api
     end
 
     def get_by_desc
-      @products = Product.where("name LIKE ? OR description LIKE ? OR mark LIKE ? OR category LIKE ?", "#{params[:filter]}%", "#{params[:filter]}%", "#{params[:filter]}%", "#{params[:filter]}%")
+      @products = Product.where("UPPER(name) LIKE ? OR UPPER(description) LIKE ? OR UPPER(mark) LIKE ? OR UPPER(category) LIKE ?", "#{params[:filter]}%", "#{params[:filter]}%", "#{params[:filter]}%", "#{params[:filter]}%")
       render_default_format(@products,true,200)
     rescue Exception => e
       render_default_error e, 401
