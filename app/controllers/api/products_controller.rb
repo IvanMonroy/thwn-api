@@ -33,6 +33,7 @@ module Api
     end
 
     # GET /products/new
+    #
     def new
       @product = Product.new
     end
